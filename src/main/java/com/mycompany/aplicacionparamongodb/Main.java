@@ -23,8 +23,35 @@ public class Main {
         // TODO code application logic here
         var connector = new Connector("Scott");
         
-        connector.eliminarColeccion("Dept");
-        connector.imprimirColecciones();
+        var docs_list = new ArrayList<Document>();
+        
+        var doc = new Document();
+        doc.append("DEPTNO", "10");
+        doc.append("DNAME", "ACCOUNTING");
+        doc.append("LOC", "NEW YORK");
+        docs_list.add(doc);
+        
+        doc = new Document();
+        doc.append("DEPTNO", "20");
+        doc.append("DNAME", "RESEARCH");
+        doc.append("LOC", "DALLAS");
+        docs_list.add(doc);
+        
+        doc = new Document();
+        doc.append("DEPTNO", "30");
+        doc.append("DNAME", "SALES");
+        doc.append("LOC", "CHICAGO");
+        docs_list.add(doc);
+        
+        doc = new Document();
+        doc.append("DEPTNO", "40");
+        doc.append("DNAME", "OPERATIONS");
+        doc.append("LOC", "BOSTON");
+        docs_list.add(doc);
+        
+        connector.insertarEn(docs_list, "Dept");
+        
+        connector.findEn("Dept");
         
         connector.close();
     }
